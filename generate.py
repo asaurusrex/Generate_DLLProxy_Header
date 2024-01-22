@@ -25,8 +25,8 @@ with open('dll_export.txt', 'r+') as f:
                 #print(y)
                 if lines[i+y] != " " and y!= 0 and lines[i+y].strip() != "Summary":
                     if len(lines[i+y].strip().split(" ")) != 1:
-                        #print(lines[i+y].strip().split(" ")[6])
-                        functionname = lines[i+y].strip().split(" ")[6]
+                        #print(lines[i+y].strip().split(" ")[-1])
+                        functionname = lines[i+y].strip().split(" ")[-1]
                         ##pragma comment(linker,"/export:SystemFunction002=C:\\Windows\\System32\\cryptbaseGetFileVersionInfoA,@1")
                         string_of_interest = "#pragma comment(linker,\"/export:{0}=C:\\\\Windows\\\\System32\\\\{1}.{2},@{3}\")".format(functionname, dll_to_proxy[:-4], functionname, y)
                         print(string_of_interest)
